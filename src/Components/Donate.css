@@ -1,0 +1,15 @@
+.donate-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+.donate-container h1{
+    color: #469D8B;
+}
+
+.select{
+    margin-bottom: 30px;
+}

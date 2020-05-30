@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import Donate from './Components/Donate'
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hack the planet!</h1>
+      <Donate/>
     </div>
   );
 }
