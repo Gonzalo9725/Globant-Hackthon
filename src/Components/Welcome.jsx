@@ -1,7 +1,7 @@
 import React from 'react'
 import './Welcome.css'
 import ButtonP from './Widgets/Button'
-import logo from '../img/Logo-Share.png'
+import logo from '../img/logo-white.png'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
