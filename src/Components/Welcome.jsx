@@ -1,6 +1,6 @@
 import React from 'react'
 import './Welcome.css'
-// import Button from './Widgets/Button'
+import ButtonP from './Widgets/Button'
 import logo from '../img/Logo-Share.png'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
@@ -70,42 +70,46 @@ const Welcome = () => {
         <div className='container-welcome'>
             <img src={logo} alt="logo"/>
             
-            <div className={classes.root}>
-      <Paper square elevation={0} className={classes.header}>
-        <Typography>{tutorialSteps[activeStep].label}</Typography>
-      </Paper>
-      <AutoPlaySwipeableViews
-        className="custom-carrousel"
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {tutorialSteps.map((step, index) => (
-          <div key={step.label} className="custom-carrousel">
-            {Math.abs(activeStep - index) <= 2 ? (
-              <img className={classes.img} src={step.imgPath} alt={step.label} />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      <MobileStepper 
-        steps={maxSteps}
-        position="static"
-        variant="text"
-        activeStep={activeStep}
-        nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-          </Button>
-        }
-      />
-    </div>
+        <div className={classes.root}>
+            <Paper square elevation={0} className={classes.header}>
+                <Typography>{tutorialSteps[activeStep].label}</Typography>
+            </Paper>
+            <AutoPlaySwipeableViews
+                className="custom-carrousel"
+                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+            >
+                {tutorialSteps.map((step, index) => (
+                <div key={step.label} className="custom-carrousel">
+                    {Math.abs(activeStep - index) <= 2 ? (
+                    <img className={classes.img} src={step.imgPath} alt={step.label} />
+                    ) : null}
+                </div>
+                ))}
+            </AutoPlaySwipeableViews>
+            <MobileStepper 
+                steps={maxSteps}
+                position="static"
+                variant="text"
+                activeStep={activeStep}
+                nextButton={
+                <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+                    {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                </Button>
+                }
+                backButton={
+                <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                    {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                </Button>
+                }
+            />
+        </div>
+        <div className='welcome-btn'>
+        <ButtonP title='Entrar'/>
+        <ButtonP title='Registrarse'/>
+        </div>
 
 
 

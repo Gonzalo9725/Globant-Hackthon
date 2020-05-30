@@ -40,3 +40,9 @@
     color:#EA8933;
     
 }
+
+.welcome-btn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+}
