@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import LogIn from './Components/LogIn';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hack the planet!</h1>
-    </div>
+    <>
+     <LogIn/>
+    </>
   );
 }
 
