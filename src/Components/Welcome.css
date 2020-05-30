@@ -12,6 +12,21 @@
     height: 149px;
 }
 
+.MuiMobileStepper-dot {
+    background-color: white !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0px 4px !important;
+}
+
+.MuiSvgIcon-root {
+    display: none !important;
+}
+
+.MuiMobileStepper-dotActive {
+    background-color: #EA8933 !important;    
+}
+
 .MuiMobileStepper-root {
     background-color: transparent !important;
 }

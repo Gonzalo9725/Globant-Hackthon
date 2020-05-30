@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar from './Components/Widgets/NavBar'
-// import Welcome from './Components/Welcome'
+// import NavBar from './Components/Widgets/NavBar'
+import Welcome from './Components/Welcome'
 
 
 
 function App() {
   return (
     <>
-     <NavBar />
+     <Welcome />
     </>
   );
 }

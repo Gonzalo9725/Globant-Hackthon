@@ -20,7 +20,7 @@ const tutorialSteps = [
     label: 'Dona comida para personas con situación de calle',
   },
   {
-    label: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
+    label: 'Lorem Ipsum is simply dummy text of the ',
   },
   {
     label: 'he 1960s with the release of Letraset sheets containing',
@@ -75,6 +75,7 @@ const Welcome = () => {
                 <Typography>{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <AutoPlaySwipeableViews
+             
                 className="custom-carrousel"
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
@@ -90,9 +91,9 @@ const Welcome = () => {
                 ))}
             </AutoPlaySwipeableViews>
             <MobileStepper 
+             variant="dots"
                 steps={maxSteps}
                 position="static"
-                variant="text"
                 activeStep={activeStep}
                 nextButton={
                 <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
