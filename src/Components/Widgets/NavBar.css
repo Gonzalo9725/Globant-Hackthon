@@ -1,0 +1,15 @@
+.container-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5em;
+    background-color: #469D8B;
+}
+.container-navbar img {
+    width: 78px;
+    height: 50px;
+    padding-left: 2em;
+}
+.container-navbar img:nth-child(2){
+    margin-right: 2em;
+}
