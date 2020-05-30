@@ -1,7 +1,7 @@
 .container-welcome{
     display: flex;
     background-color: #469D8B;
-    height: -webkit-fill-available;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
