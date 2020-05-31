@@ -1,7 +1,6 @@
 import React from 'react'
 import './FoodAvailable.css'
 import FoodCard from './Widgets/FoodCard'
-import Button from './Widgets/Button'
 
 const FoodAvailable = () => {
     return (
