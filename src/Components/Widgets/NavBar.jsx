@@ -40,7 +40,7 @@ const NavBar = ({user}) => {
             )}     
             
             <div className='dropdown-content'>
-                 <a href="https://www.w3schools.com/tags/att_a_href.asp">Ver mi perfil</a>
+                 <a href="/MisDonaciones">Mis Donaciones</a>
                 <a onClick={() => closeSession()}>Cerrar Sesión</a> 
             </div>
             </div>

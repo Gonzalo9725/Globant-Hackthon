@@ -127,7 +127,7 @@ const Donate = () => {
 
         <TextField id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
 
-        <TextField onChange={handleCantidad} id="cantidad" label="¿Cuantos kg vas a donar?" />
+        <TextField onChange={handleCantidad} id="cantidad" label="Cantidad que vas a donar:" />
 
         <label className="expired-label">Fecha de Vencimiento</label>
         <input type="date" className="date" onChange={handleDateChange} min="2020-05-01"/>

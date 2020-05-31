@@ -6,6 +6,8 @@ import frutas from "../img/frutas.png";
 import gente from "../img/gente.png";
 import { setUser } from "../actions/action";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
+
 
 const Home = ({ setUser }) => {
   
@@ -28,9 +30,11 @@ const Home = ({ setUser }) => {
               Conocenos, cual es nuestra visión, misión, como funciona nuestra
               app y como puedes aportar tu granito de arena
             </p>
-            <button className="btnUs">
-              <strong>Conocer</strong>
-            </button>
+            <Link to='/weare' style={{textDecoration: 'none'}}>
+              <button className="btnUs">
+                <strong>Conocer</strong>
+              </button>
+            </Link>
           </div>
           <img src={girl} className="img" alt="joven sentada en sillón" />
         </div>
@@ -42,9 +46,11 @@ const Home = ({ setUser }) => {
               vayas a consumir los puedes Donar para que otra persona que los
               necesite los pueda adquirir
             </p>
-            <button className="btnGive">
-              <strong>Donar</strong>
-            </button>
+            <Link to='/Donar' style={{textDecoration: 'none'}}>
+              <button className="btnGive">
+                <strong>Donar</strong>
+              </button>
+            </Link>
           </div>
           <img src={frutas} className="img" alt="bandeja con frutas" />
         </div>
@@ -55,9 +61,11 @@ const Home = ({ setUser }) => {
               Si deseas recibir alimentos ya sea para tu consumo personal o para
               llevarlos a alguna persona necesitada, ingresa aquí
             </p>
-            <button className="btnReceive">
-              <strong>Recibir</strong>
-            </button>
+            <Link to='/Donaciones' style={{textDecoration: 'none'}}>
+              <button className="btnReceive">
+                <strong>Recibir</strong>
+              </button>
+            </Link>
           </div>
           <img src={gente} className="img" alt="personas" />
         </div>
