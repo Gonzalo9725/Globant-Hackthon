@@ -29,6 +29,7 @@ border-radius: 5px;
 color: white;
 width: 150px;
 height: 40px;
+border:none;
 }
 .btnUs {
     background: #26D8BA;
@@ -50,12 +51,15 @@ height: 40px;
 @media all and (max-width: 400px){
     .divUs, .give, .receive{
         padding: 2%;
-        width: 85%;
-        height: 200px;
+        width: 70%;
+        height: 160px;
         font-size: x-small;
     }
     .img{
         max-width: 120px;
+    }
+    .divHome{
+        margin-top: 5%;
     }
     .btnUs, .btnGive, .btnReceive{
         width: 100px;
