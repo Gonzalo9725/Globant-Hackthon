@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import './MyDonations.css'
-import { db } from '../firebase-config'
+import { db,auth } from '../firebase-config'
 import FoodCard from './Widgets/FoodCard'
 import NavBar from './Widgets/NavBar'
 
 const MyDonations = () => {
 
-    const [myDonations, setMyDonations] = useState(null)
-
-    useEffect(() => {
-        const foodDonations = db.collection('food').orderBy('time', 'desc');
-        foodDonations.onSnapshot((querySnapshot) => {
-            const food = [];
+    const [firebaseUser, setFirebaseUser] = useState(false)
+    const uiUser = firebaseUser.uid
+    const ownDonations= db.collectionGroup('food').where('userID.uid', '==', uiUser).orderBy('time', 'desc');
     
-            querySnapshot.forEach(doc => {
-              const infoFood = 
-                  { dataOrder: doc.data(),
-                    id: doc.id }
-              food.push(infoFood);
-            });
-
-            setMyDonations(food)
-            console.log(food)
-        });
-    }, [])
+    
+useEffect(() => {
+    
+    console.log('1. Entrando al UseEffect')
+    const fetchUser = () => {  // Consigue el currentUser
+      auth.onAuthStateChanged(user => {
+          if(user){
+            console.log('2. Entrando al IF del UseEffect')
+              setFirebaseUser({ // La guarda en un estado
+                displayName : user.displayName, 
+                email: 
+                user.email,
+                uid: user.uid,
+                emailVerified: user.emailVerified,
+                photoURL: user.photoURL})
+          }else{
+              setFirebaseUser({})
+          }
+      })
+    }
+    fetchUser()
+  }, [])
+  
 
     const convertDay = (date) => {
         const myDate = new Date( date *1000);
@@ -35,8 +44,8 @@ const MyDonations = () => {
             <NavBar />
             <h1 className='titleFoodSection'>Mis Donaciones:</h1>
             <div className='myDonationsDiv'>
-            { myDonations &&
-            myDonations.map(food => {
+            { ownDonations &&
+            ownDonations.map(food => {
                 return(
                     <FoodCard
                     key={food.id}
