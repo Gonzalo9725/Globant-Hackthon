@@ -1,0 +1,28 @@
+.CharityForm-Container{
+    margin: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.CharityForm-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.CharityForm-button{
+    width: 80%;
+    align-self: center;
+}
+.CharityForm-FileInputP{
+    font-size: small;
+    color: grey;
+}
+.CharityForm-InputFile{
+    margin-top: 15%;
+}
+.CharityForm-FileInputP{
+    margin-bottom: 15%;
+}
+    

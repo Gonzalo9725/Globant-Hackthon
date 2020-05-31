@@ -15,11 +15,12 @@
     font-size: 15px;
     line-height: 18px;
     text-transform: uppercase;
-    width: 17em;
+    margin-top: 2em;
+    width: 21em;
 }
 
 .select{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .button-form{
@@ -27,8 +28,8 @@
 }
 
 .expired-label{
-    padding: 12px 0px;
-    font-size: 18px;
+    padding: 15px 0px 0 0;
+    font-size: 15px;
     color: #686868;
 }
 
