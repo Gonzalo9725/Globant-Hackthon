@@ -1,19 +1,22 @@
-import React, { Fragment } from "react";
-import "./Home.css";
+import React, { Fragment,useEffect } from "react";
+import "./WeAre.css";
 import NavBar from "./Widgets/NavBar";
-import girl from "../img/girl.png";
-import frutas from "../img/frutas.png";
-import gente from "../img/gente.png";
+import we_are from "../img/we_are.png";
+import { setUser } from "../actions/action";
+import { connect } from "react-redux";
+
 
 const Home = () => {
   return (
     <Fragment>
       <NavBar />
-      <div className="divHome">
+      <div className="divWe">
+      <div className='divWeAre'>
         <div>
-          <div className="text">
-            <h2>Nosotros</h2>
-            <p>
+          <div className="textWe">
+            <h2 className="title">¿Qué es share food?</h2>
+            <div className="line"> </div>
+            <p className="parrafo">
               Deseando cerrar la brecha de la hambruna en tiempos digitales es
               cuando nace Share Food, una app sin fines de lucro con la clara
               idea de reducir los costos y aumentar el libre acceso a alimentos
@@ -21,14 +24,24 @@ const Home = () => {
               cerrar la brecha de la hambruna en tiempos digitales es cuando
               nace Share Food, una app sin fines de lucro con la clara idea de
               reducir los costos y aumentar el libre acceso a alimentos
-              rescatados que estaban destinados a ser desechados. Así
+              rescatados que estaban destinados a ser desechados. 
             </p>
-            <button className="btnUs">
-              <strong>Conocer</strong>
-            </button>
+            <h2 className="title">¿Cómo puedes ayudarnos?</h2>
+            <div className="line"> </div>
+            <p className="parrafo">
+              Siempre estamos recibiendo donaciones de comida o cualquier información 
+              útil para poder recopilar alimentos que esten en buen estado.
+
+              Puedes llenar nuestros formularios en la sección donar poder donar
+              los alimentos que ya no utilices.
+            </p>
+        
+          <img src={we_are} className="imgWe" alt="Grupo de personas" />
           </div>
-          <img src={girl} className="img" alt="joven sentada en sillón" />
         </div>
+
+        </div>
+
       </div>
     </Fragment>
   );
