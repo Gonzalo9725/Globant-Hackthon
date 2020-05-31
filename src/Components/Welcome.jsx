@@ -11,6 +11,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { useHistory } from 'react-router-dom'
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -47,8 +48,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Welcome = () => {
+  const history = useHistory();
 
-    const classes = useStyles();
+  const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = tutorialSteps.length;
@@ -109,7 +111,8 @@ const Welcome = () => {
         </div>
         <div className='welcome-btn'>
         <ButtonP title='Entrar'/>
-        <ButtonP title='Registrarse'/>
+        <ButtonP title='Registrarse' onClick={() => history.push('/login')}/>
+        {/* <p className='register-link' onClick={() => history.push('/register')}>Crea tu cuenta aquí</p> */}
         </div>
 
 
