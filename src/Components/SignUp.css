@@ -66,11 +66,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2.1em;
+    height: 34px;
     width: 244px;
     border-radius: 8px;
     border: none;
-    font-size: 18px;
+    font-size: 14px;
     color: #fbf5f3;
     font-weight: bold;
     background-color: #353434;

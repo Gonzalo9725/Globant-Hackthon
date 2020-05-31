@@ -124,23 +124,8 @@ const signUpGoogle = () => {
         </form>
         <div className="container-login-end">
           <div className="container-conditions">
-            <Switch
-              checked={state.checkedA}
-              onChange={handleChangeSwitch}
-              color="default"
-              name="checkedA"
-              inputProps={{ "aria-label": "default checkbox" }}
-            />
-            <p className='condiciones'>
-              Al ingresar o registrarte, estás aceptando los Términos y
-              Condiciones de ShareFoord
-            </p>
           </div>
-
-          {(state.checkedA && <Button disabled={false} onClick={() => register()} title="Ingresar" />) || (
-            <Button type='submit'  disabled={true} title="Ingresar" />
-          )}
-
+          <Button onClick={() => register()} title="Ingresar" /> 
           <div className="container-btn-google">
             <button className="btn-google" onClick={signUpGoogle}>
               <img className="google" src={google} alt="google"/>
