@@ -32,7 +32,7 @@ const Home = ({ setUser }) => {
               <strong>Conocer</strong>
             </button>
           </div>
-          <img src={girl} className="img" alt="joven sentada en sillón" />
+          <img className='girl-img' src={girl}  alt="joven sentada en sillón" />
         </div>
         <div className="give">
           <div className="text">
@@ -46,7 +46,7 @@ const Home = ({ setUser }) => {
               <strong>Donar</strong>
             </button>
           </div>
-          <img src={frutas} className="img" alt="bandeja con frutas" />
+          <img className='frutas-img'src={frutas}  alt="bandeja con frutas" />
         </div>
         <div className="receive">
           <div className="text">
@@ -59,7 +59,7 @@ const Home = ({ setUser }) => {
               <strong>Recibir</strong>
             </button>
           </div>
-          <img src={gente} className="img" alt="personas" />
+          <img className='gente-img' src={gente}  alt="personas" />
         </div>
       </div>
     </Fragment>

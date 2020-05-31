@@ -6,15 +6,14 @@
   background-color: #469d8b;
 }
 .navbar-logo {
-    width: 69px;
-    height: 42.11px;
+  width: 66px;
+  height: 42.11px;
   margin-left: 2em;
 }
-.navbar-profile{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    
+.navbar-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .dropdown {
@@ -53,4 +52,3 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
