@@ -11,6 +11,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { useHistory } from 'react-router-dom'
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -20,7 +21,7 @@ const tutorialSteps = [
     label: 'Dona comida para personas con situación de calle',
   },
   {
-    label: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
+    label: 'Lorem Ipsum is simply dummy text of the ',
   },
   {
     label: 'he 1960s with the release of Letraset sheets containing',
@@ -47,8 +48,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Welcome = () => {
+  const history = useHistory();
 
-    const classes = useStyles();
+  const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = tutorialSteps.length;
@@ -75,6 +77,7 @@ const Welcome = () => {
                 <Typography>{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <AutoPlaySwipeableViews
+             
                 className="custom-carrousel"
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
@@ -90,9 +93,9 @@ const Welcome = () => {
                 ))}
             </AutoPlaySwipeableViews>
             <MobileStepper 
+             variant="dots"
                 steps={maxSteps}
                 position="static"
-                variant="text"
                 activeStep={activeStep}
                 nextButton={
                 <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
@@ -108,7 +111,8 @@ const Welcome = () => {
         </div>
         <div className='welcome-btn'>
         <ButtonP title='Entrar'/>
-        <ButtonP title='Registrarse'/>
+        <ButtonP title='Registrarse' onClick={() => history.push('/login')}/>
+        {/* <p className='register-link' onClick={() => history.push('/register')}>Crea tu cuenta aquí</p> */}
         </div>
 
 
