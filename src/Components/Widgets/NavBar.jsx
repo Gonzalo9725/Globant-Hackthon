@@ -2,8 +2,27 @@ import React from 'react'
 import './NavBar.css'
 import logo from '../../img/Logo-Share.png'
 import perfil from '../../img/default_profile.jpg'
+import { auth } from '../../firebase-config'
+import { useHistory } from 'react-router-dom'
 
 const NavBar = () => {
+
+  const history = useHistory();
+   
+  const closeSession = () => {
+      auth.signOut()
+      
+      .then(() => {
+          
+          console.log('Saliendo');
+          history.push("/")
+          console.log('despues del historypush')
+          
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+  };
     return (
         <div className='container-navbar'>
             <img className='navbar-logo' src={logo} alt="logoNavbar"/>
@@ -21,10 +40,9 @@ const NavBar = () => {
             
             <div className='dropdown-content'>
                  <a href="https://www.w3schools.com/tags/att_a_href.asp">Ver mi perfil</a>
-                <a href="https://www.w3schools.com/tags/att_a_href.asp">Cerrar Sesión</a> 
+                <a onClick={() => closeSession()}>Cerrar Sesión</a> 
             </div>
             </div>
-                {/* <img src={perfil} alt="defaultProfile"/>    */}
         </div>
     )
 }

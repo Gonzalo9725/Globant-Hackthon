@@ -3,8 +3,10 @@ import './CharityForm.css'
 import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
-import firebase from "firebase/app";
-import "firebase/firestore";
+// import firebase from "firebase/app";
+// import "firebase/firestore";
+import { db } from '../firebase-config';
+
 
 
 
@@ -34,7 +36,7 @@ const CharityForm = () => {
         console.log(data)
 
         // Adding collection in firebase                 
-        firebase.firestore().collection("ONG").add({
+        db.collection("ONG").add({
             name: data.Name,
             RUT: data.RUT,
             Representative: data.Representative,
