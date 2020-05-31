@@ -1,11 +1,11 @@
-.navbar-logo {
+.navbar-logoC {
   height: 4em;
   background-color: #469d8b;
   align-items: center;
   display: flex;
   padding-left: 2em;
 }
-.navbar-logo img {
+.navbar-logoC img {
   width: 78px;
   height: 50px;
 }
@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .container-signUp h1 {
