@@ -2,6 +2,8 @@ import React from 'react'
 import './LogIn.css'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import logo from '../img/logo-white.png'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +26,10 @@ const LogIn = () => {
     const classes = useStyles();
 
     return (
+      <>
+        <div className='navbar-logo'>
+          <img src={logo} alt="logo"/>
+        </div>
         <div className='container-login'>
         <h1>Registrarse</h1>
         <form className={classes.root} noValidate autoComplete="off">
@@ -32,6 +38,7 @@ const LogIn = () => {
             <TextField id="standard-basic" label="Contraseña" />
         </form>
         </div>
+      </>  
     )
 }
 
