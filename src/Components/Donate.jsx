@@ -6,6 +6,7 @@ import Button from './Widgets/Button'
 import "./Donate.css";
 import {db} from '../firebase-config';
 import { useHistory } from 'react-router-dom'
+import Navbar from './Widgets/NavBar' 
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -81,6 +82,8 @@ const Donate = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="donate-container">
       <h1>¿Qué deseas donar?</h1>
 
@@ -112,19 +115,20 @@ const Donate = () => {
         <label className="expired-label">Fecha de Vencimiento</label>
         <input type="date" className="date" onChange={handleDateChange} min="2020-05-01"/>
 
-        <TextField className="select" id="name" label="Nombre" onChange={handleName} />
+        <TextField id="name" label="Nombre" onChange={handleName} />
 
-        <TextField onChange={handlePhone} className="select" id="phone" label="Teléfono" />
+        <TextField onChange={handlePhone} id="phone" label="Teléfono" />
 
-        <TextField onChange={handleCantidad} className="select" id="cantidad" label="¿Cuantos kg vas a donar?" />
+        <TextField onChange={handleCantidad} id="cantidad" label="¿Cuantos kg vas a donar?" />
 
-        <TextField className="select" id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
+        <TextField id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
 
         <div className="button-form">
-            <Button disabled={false} title="Enviar" onClick={sendDonation}/>
+            <Button disabled={false} title="Enviar" onClick={sendDonation} color="#469D8B"/>
         </div>
       </FormControl>
     </div>
+    </>
   );
 };
 
