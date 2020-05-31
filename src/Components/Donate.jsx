@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from './Widgets/Button'
 import "date-fns";
 import "./Donate.css";
+import {db} from '../firebase-config';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -60,7 +61,23 @@ const Donate = () => {
 
   const sendDonation = () =>{
 
-  }
+    db.collection('food').add({
+      Rut: rut,
+      category: foodType,
+      expiration: selectedDate,
+      name: name,
+      phone: phone,
+      quantity: cantidad,
+      title: food,
+      time: new Date(),
+    })
+    .then((docRef) => {
+      console.log(docRef);
+    })
+    .catch((error) => {
+      console.log('Error ', error);
+    });
+  };
 
   return (
     <div className="donate-container">
