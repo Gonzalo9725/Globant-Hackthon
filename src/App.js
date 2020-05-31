@@ -6,6 +6,8 @@ import Welcome from './Components/Welcome'
 import LogIn from './Components/LogIn';
 import Home from './Components/Home'
 import SignUp from './Components/SignUp'
+import FoodAvailable from './Components/FoodAvailable';
+
 
 
 
@@ -18,6 +20,7 @@ function App() {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
             <Route path='/home' component={Home} />
+            <Route path='/Donaciones' component={FoodAvailable} />
         </Switch>
     </Router>
     </>
