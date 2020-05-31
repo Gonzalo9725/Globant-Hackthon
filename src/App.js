@@ -18,13 +18,12 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route exact path='/' component={Donate} />
+          <Route exact path='/' component={Welcome} />
+          <Route exact path='/Donar' component={Donate} />
           <Route path='/signup' component={SignUp} />
           <Route path='/login' component={LogIn} />
           <Route path='/home' component={Home} />
           <Route path='/Donaciones' component={FoodAvailable} />
-          <Route path='/ong' component={CharityForm} />
-
         </Switch>
       </Router>
     </>

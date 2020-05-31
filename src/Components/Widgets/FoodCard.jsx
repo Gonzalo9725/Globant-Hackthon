@@ -34,10 +34,8 @@ const FoodCard = ({title, qty, exp, name, contact, isYours, category, deleteFunc
             <div className='contentCard'>
                 <div className='textCard'>
                     <h2>{title}</h2>
-                    <div className='detailsFood'>
-                        <span><b>Cant:</b> {qty}</span>
-                        <span><b>Vence:</b> {exp}</span>
-                    </div>
+                    <span className='subTextCard'><b>Cant:</b> {qty}</span>
+                    <span className='subTextCard'><b>Vence:</b> {exp}</span>
                     <span className='subTextCard'><b>Donado por:</b> {name}</span>
                     <span className='subTextCard'><b>Contacto:</b> {contact}</span>
                     <span className='subTextCard'><b>Categoría:</b> {category}</span>       
