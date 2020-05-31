@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './FoodCard.css'
 
-const FoodCard = ({title, qty, exp, name, contact, isYours, category}) => {
+const FoodCard = ({title, qty, exp, name, contact, isYours, category, deleteFunc}) => {
 
     const [isDespensa, setIsDespensa] =  useState(false)
     const [isVegetales, setIsVegetales] =  useState(false)
@@ -30,13 +30,8 @@ const FoodCard = ({title, qty, exp, name, contact, isYours, category}) => {
 
     return (
         <div className='foodCard'>
-            {isYours && <span className='closeCard'>&times;</span>}
+            {isYours && <span onClick={deleteFunc} className='closeCard'>&times;</span>}
             <div className='contentCard'>
-                {isDespensa && <img className='imgCard' src={require('../../img/canned-food.png')} alt="Categoría Despensa"/> }
-                {isVegetales && <img className='imgCard' src={require('../../img/vegetable.png')} alt=" Categoría Frutas y vegetales"/> }
-                {isFrescos && <img className='imgCard' src={require('../../img/milk.png')} alt=" Categoría Frescos y Lácteos"/> }
-                {isCarnes && <img className='imgCard' src={require('../../img/meat.png')} alt=" Categoría Carnes"/> }
-                {isOtros && <img className='imgCard' src={require('../../img/cake-pop.png')} alt=" Categoría Otros"/> }
                 <div className='textCard'>
                     <h2>{title}</h2>
                     <div className='detailsFood'>
@@ -47,6 +42,11 @@ const FoodCard = ({title, qty, exp, name, contact, isYours, category}) => {
                     <span className='subTextCard'><b>Contacto:</b> {contact}</span>
                     <span className='subTextCard'><b>Categoría:</b> {category}</span>       
                 </div>
+                {isDespensa && <img className='imgCard' src={require('../../img/canned-food.png')} alt="Categoría Despensa"/> }
+                {isVegetales && <img className='imgCard' src={require('../../img/vegetable.png')} alt=" Categoría Frutas y vegetales"/> }
+                {isFrescos && <img className='imgCard' src={require('../../img/milk.png')} alt=" Categoría Frescos y Lácteos"/> }
+                {isCarnes && <img className='imgCard' src={require('../../img/meat.png')} alt=" Categoría Carnes"/> }
+                {isOtros && <img className='imgCard' src={require('../../img/cake-pop.png')} alt=" Categoría Otros"/> }
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ const FoodAvailable = () => {
             exp='11/07/2020'
             name= 'María Pérez'
             contact='+56 9 5882 5528' 
-            isYours={true}
+            isYours={false}
             category='Frutas y Vegetales' />
         </div>
     )
