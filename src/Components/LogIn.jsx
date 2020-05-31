@@ -1,45 +1,156 @@
-import React from 'react'
-import './LogIn.css'
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import logo from '../img/logo-white.png'
+import React, { useState } from "react";
+import "./LogIn.css";
+import { useHistory } from 'react-router-dom'
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import logo from "../img/logo-white.png";
+import Button from "./Widgets/Button";
+import google from "../img/google.png";
+import Switch from "@material-ui/core/Switch";
+import { auth } from '../firebase-config'
 
-
-
+// objeto de configuracion de estilos de material ui
 const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-      "& label.Mui-focused": {
-        color: "#469D8B",
-      },
-      "& .MuiInput-underline:after": {
-        borderBottomColor: "#469D8B",
-      },
+  root: {
+    "& > *": {
+      width: "29ch",
+      margin: "3px",
     },
-  }));
+    "& label.Mui-focused": {
+      color: "#469D8B",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#469D8B",
+    },
+  },
+}));
+
+
 
 const LogIn = () => {
+  const classes = useStyles();
+  const history = useHistory();
 
-    const classes = useStyles();
+  // función del aceptar terminos y condiciones
+const [state, setState] = React.useState({
+  checkedA: false,
+  checkedB: true,
+});
 
-    return (
-      <>
-        <div className='navbar-logo'>
-          <img src={logo} alt="logo"/>
-        </div>
-        <div className='container-login'>
+const handleChangeSwitch = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+};
+
+
+// Manejan el estado de las funciones para crear una cuenta nueva
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [name, setName] = useState("");
+const [error, setError] = useState(null);
+
+
+
+const signIn = async (e) => {
+  e.preventDefault();
+
+  if (!email.trim()) {
+    setError("Ingrese Email*");
+    return;
+  }
+  if (!password.trim()) {
+    setError("Ingrese password*");
+    return;
+  }
+  if (!password.length < 6) {
+    setError("Pasword debe tener 6 caracteres o más*");
+    return;
+  }
+  setError(null);
+  register();
+};
+
+const register = (async () => { console.log('entro click')
+  try {
+    const res = await auth.createUserWithEmailAndPassword(email, password);
+    console.log(res.user);
+    alert("Se ha creado correctamente tu cuenta!");
+    history.push("/");
+  } catch (error) {
+    if (error.code === "auth/invalid-email") {
+      setError("Email no válido");
+    }
+    if (error.code === "auth/email-already-in-use") {
+      setError("Email ya esta registrado");
+    }
+  }
+});
+
+
+  return (
+    <>
+      <div className="navbar-logo">
+        <img src={logo} alt="logo" />
+      </div>
+      <div className="container-login">
         <h1>Registrarse</h1>
-        <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Nombre" />
-            <TextField id="standard-basic" label="Email" />
-            <TextField id="standard-basic" label="Contraseña" />
+        <p>
+          Ingresa la Informacón requerida a continuación para completar tu
+          registro
+        </p>
+        <form onSubmit={signIn} className={classes.root} noValidate autoComplete="off">
+          {error && <div style={{ color: "darkred" }}>{error}</div>}
+          <TextField 
+          id="standard-basic" 
+          label="Nombre" 
+          type='name'
+          onChange={(e) => setName(e.target.value)}
+          value={name}/>
+          <TextField 
+          id="standard-basic" 
+          label="Apellido" />
+          <TextField 
+          id="standard-basic" 
+          label="Email"
+          type='email'
+          onChange={(e) => setEmail(e.target.value)}
+          value={email} />
+          <TextField
+          id="standard-basic" 
+          label="Contraseña"
+          type='password'
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+           />
         </form>
-        </div>
-      </>  
-    )
-}
+        <div className="container-login-end">
+          <div className="container-conditions">
+            <Switch
+              checked={state.checkedA}
+              onChange={handleChangeSwitch}
+              color="default"
+              name="checkedA"
+              inputProps={{ "aria-label": "default checkbox" }}
+            />
+            <p>
+              Al ingresar o registrarte, estás aceptando los Términos y
+              Condiciones de ShareFoord
+            </p>
+          </div>
 
-export default LogIn
+          {(state.checkedA && <Button disabled={false} onClick={() => register()} title="Ingresar" />) || (
+            <Button type='submit'  disabled={true} title="Ingresar" />
+          )}
+
+          <div className="container-btn-google">
+            <button className="btn-google">
+              <img className="google" src={google} alt="google" />
+              Ingresa con Google
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default LogIn;
