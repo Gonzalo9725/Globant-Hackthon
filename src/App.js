@@ -9,7 +9,7 @@ import NavBar from './Components/Widgets/NavBar'
 function App() {
   return (
     <>
-     <NavBar />
+      <NavBar />
     </>
   );
 }
