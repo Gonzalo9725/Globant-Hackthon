@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {InputLabel, Select, FormControl, MenuItem, Grid} from "@material-ui/core";
+import { Select, FormControl, MenuItem, Grid, InputLabel } from "@material-ui/core";
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import TextField from '@material-ui/core/TextField';
@@ -18,30 +18,81 @@ const useStyles = makeStyles((theme) => ({
 const Donate = () => {
 
   const classes = useStyles();
+  const [rut, setRut] = useState("");
   const [foodType, setFoodType] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date("2020-05-30T21:11:54"));
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [cantidad, setCantidad] = useState("");
+  const [food, setFood] = useState("");
+
+
+  const handleRut = (event) => {
+    setRut(event.target.value);
+  };
+  
+  const handleChange = (event) => {
+    setFoodType(event.target.value);
+  };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  const handleChange = (event) => {
-    setFoodType(event.target.value);
+  const handleName = (event) => {
+    setName(event.target.value);
   };
+
+  const handlePhone = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const handleCantidad = (event) => {
+    setCantidad(event.target.value);
+  };
+
+  const handleFood = (event) => {
+    setFood(event.target.value);
+  };
+
+
+  
+
+  const sendDonation = () =>{
+
+  }
 
   return (
     <div className="donate-container">
-      <h1>Formulario de Donación</h1>
+      <h1>¿Qué deseas donar?</h1>
 
       <FormControl
         className={classes.formControl}
         noValidate
         autoComplete="off">
 
-        <TextField className="select" id="standard-basic" label="¿Qué vas a donar?" />
+        <TextField 
+          className="select" 
+          id="rut" 
+          label="R.U.T"
+          onChange={handleRut} />
+        <br/><br/>
+        <label>Categoría</label>
+        <Select
+          className="select"
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={foodType}
+          onChange={handleChange}>
+          <MenuItem value={"Despensa"}>Despensa</MenuItem>
+          <MenuItem value={"Frutas y Vegetales"}>Frutas y Vegetales</MenuItem>
+          <MenuItem value={"Frescos y Lácteos"}>Frescos y Lácteos</MenuItem>
+          <MenuItem value={"Carnes"}>Carnes</MenuItem>
+          <MenuItem value={"Otros"}>Otros</MenuItem>
+        </Select>
 
         <MuiPickersUtilsProvider utils={DateFnsUtils} >
-            <label className="form-marginTop">Fecha de Vencimiento</label>
+        <label className="form-marginTop">Fecha de Vencimiento</label>
           <Grid container justify="space-around" className="select">
             <KeyboardDatePicker
               disableToolbar
@@ -56,22 +107,26 @@ const Donate = () => {
             />
           </Grid>
         </MuiPickersUtilsProvider>
-        <Select
-          className="select"
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={foodType}
-          onChange={handleChange}
-        >
-          <MenuItem value={"Despensa"}>Despensa</MenuItem>
-          <MenuItem value={"Frutas y Vegetales"}>Frutas y Vegetales</MenuItem>
-          <MenuItem value={"Frescos y Lácteos"}>Frescos y Lácteos</MenuItem>
-          <MenuItem value={"Carnes"}>Carnes</MenuItem>
-          <MenuItem value={"Otros"}>Otros</MenuItem>
-        </Select>
-        <TextField className="select" id="standard-basic" label="Teléfono" />
+
+        <TextField 
+          className="select" 
+          id="name" 
+          label="Nombre"
+          onChange={handleName} />
+
+        <TextField onChange={handlePhone} className="select" id="phone" label="Teléfono" />
+
+        <TextField onChange={handleCantidad} className="select" id="cantidad" label="¿Cuantos kg vas a donar?" />
+        <span>Kg.</span>
+
+        <TextField 
+          className="select" 
+          id="donation" 
+          label="¿Qué vas a donar?"
+          onChange={handleFood} />
+
         <div className="form-marginTop">
-            <Button disabled={false} title="Enviar"/>
+            <Button disabled={false} title="Enviar" onClick={sendDonation}/>
         </div>
       </FormControl>
     </div>

@@ -1,7 +1,7 @@
 .container-welcome{
     display: flex;
     background-color: #469D8B;
-    height: -webkit-fill-available;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -10,6 +10,21 @@
 .container-welcome img{
     width: 244.15px;
     height: 149px;
+}
+
+.MuiMobileStepper-dot {
+    background-color: white !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0px 4px !important;
+}
+
+.MuiSvgIcon-root {
+    display: none !important;
+}
+
+.MuiMobileStepper-dotActive {
+    background-color: #EA8933 !important;    
 }
 
 .MuiMobileStepper-root {

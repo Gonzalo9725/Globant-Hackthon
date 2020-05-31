@@ -8,7 +8,14 @@
 }
 
 .donate-container h1{
-    color: #469D8B;
+    color: #686868;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    width: 17em;
 }
 
 .select{

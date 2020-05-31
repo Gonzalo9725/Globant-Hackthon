@@ -1,11 +1,24 @@
 import React from 'react';
 import './App.css';
-import Donate from './Components/Donate'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import NavBar from './Components/Widgets/NavBar'
+import Welcome from './Components/Welcome'
+import LogIn from './Components/LogIn';
+import FoodAvailable from './Components/FoodAvailable';
+import Donate from './Components/Donate';
+
+
 
 function App() {
   return (
     <>
-     <Donate/>
+    <Router>
+        <Switch>
+            <Route exact path='/' component={Donate} />
+            <Route path='/login' component={LogIn} />
+            <Route path='/Donaciones' component={FoodAvailable} />
+        </Switch>
+    </Router>
     </>
   );
 }
