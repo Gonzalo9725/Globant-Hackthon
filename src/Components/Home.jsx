@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './Home.css'
+import NavBar from './Widgets/NavBar'
 import girl from '../img/girl.png'
 import frutas from '../img/frutas.png'
 import gente from '../img/gente.png'
 
 const Home = () => {
     return (
-        <div className='divHome'>
+        <Fragment>
+            <NavBar/>
+            <div className='divHome'>
             <div className='divUs'>
                 <div className='text'>
                 <h2>Nosotros</h2>
@@ -33,6 +36,8 @@ const Home = () => {
                 <img src={gente} className='img' alt='personas'/>
             </div>  
         </div>
+        </Fragment>
+        
     )
 }
 
