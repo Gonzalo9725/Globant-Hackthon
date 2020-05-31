@@ -21,6 +21,7 @@ function App() {
             <Route path='/login' component={LogIn} />
             <Route path='/home' component={Home} />
             <Route path='/Donaciones' component={FoodAvailable} />
+            <Route path='/AboutUs' component={WeAre} />
         </Switch>
     </Router>
     </>
