@@ -1,0 +1,42 @@
+.donate-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.donate-container h1{
+    color: #686868;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    width: 17em;
+}
+
+.select{
+    margin-bottom: 30px;
+}
+
+.button-form{
+    margin: 2em;
+}
+
+.expired-label{
+    padding: 12px 0px;
+    font-size: 18px;
+    color: #686868;
+}
+
+.date{
+    padding: 1em;
+    margin-top: 0.5em;
+    font-size: 18px;
+    color: #686868;
+    border: none;
+    border-bottom: 1px solid #686868;
+}

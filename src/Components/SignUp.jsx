@@ -102,7 +102,7 @@ const signUpGoogle = () => {
       <div className="navbar-logo">
         <img src={logo} alt="logo" />
       </div>
-      <div className="container-login">
+      <div className="container-signUp">
         <h1>Registrarse</h1>
         <p className='text-login'>
           Ingresa la Informacón requerida a continuación para
