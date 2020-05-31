@@ -1,0 +1,17 @@
+.CharityForm-Container{
+    margin: 8%;
+}
+.CharityForm-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.CharityForm-button{
+    width: 80%;
+    align-self: center;
+    margin-top: 15%;
+}
+
+
+    
