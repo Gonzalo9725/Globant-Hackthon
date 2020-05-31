@@ -1,10 +1,12 @@
 .foodCard {
     display: flex;
     flex-direction: column;
-    background-color: #ebebeb;
+    background-color: #EA8933 ;
     border-radius: 10px;
     padding: 1em;
     margin: 1em;
+    color: #fff;
+    max-width: 40em;
 }
 
 .closeCard {
@@ -19,8 +21,10 @@
 }
 
 .imgCard {
-    height: 5em;
-    margin: 0.5em;
+    height: 8em;
+    width: 8em;
+    border-radius: 10px;
+    margin-left: 0.5em;
 }
 
 .textCard {
@@ -30,7 +34,7 @@
 }
 
 .textCard h2 {
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.8em 0;
     font-size: 18px;
 }
 
@@ -38,11 +42,11 @@
     font-size: 12px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
     width: 100%;
 }
 
 .subTextCard {
     font-size: 12px;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
