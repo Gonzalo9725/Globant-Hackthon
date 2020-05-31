@@ -1,0 +1,27 @@
+.donate-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.donate-container h1{
+    color: #686868;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    width: 17em;
+}
+
+.select{
+    margin-bottom: 30px;
+}
+
+.form-marginTop{
+    margin-top: 30px;
+}
