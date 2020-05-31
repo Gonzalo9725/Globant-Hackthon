@@ -4,6 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    
 }
 
 .donate-container h1{
@@ -12,4 +13,8 @@
 
 .select{
     margin-bottom: 30px;
+}
+
+.form-marginTop{
+    margin-top: 30px;
 }

@@ -1,0 +1,48 @@
+.container-welcome{
+    display: flex;
+    background-color: #469D8B;
+    height: -webkit-fill-available;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-welcome img{
+    width: 244.15px;
+    height: 149px;
+}
+
+.MuiMobileStepper-root {
+    background-color: transparent !important;
+}
+.MuiMobileStepper-root {
+    width: 20em;
+}
+
+.makeStyles-header-2 {
+    background-color: transparent !important;
+}
+
+.custom-carrousel img{
+    display: none;
+}
+.MuiTypography-body1 { 
+    font-size: 1.2em !important;
+    color: white;
+    width: 14em !important;
+}
+
+.MuiMobileStepper-root {
+    color: white !important;
+    
+}
+.MuiSvgIcon-root {
+    color:#EA8933;
+    
+}
+
+.welcome-btn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+}
