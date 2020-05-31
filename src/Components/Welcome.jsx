@@ -18,13 +18,13 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: 'Dona comida para personas con situación de calle',
+    label: 'Dona comida para las personas que más lo necesitan',
   },
   {
-    label: 'Lorem Ipsum is simply dummy text of the ',
+    label: 'Ayúdanos a ayudar! tu donativo es importante ',
   },
   {
-    label: 'he 1960s with the release of Letraset sheets containing',
+    label: 'Si necesitas alimentos, entra a nuestra app',
   },
  
 ];

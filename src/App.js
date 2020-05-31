@@ -8,7 +8,11 @@ import SignUp from './Components/SignUp'
 import FoodAvailable from './Components/FoodAvailable';
 import CharityForm from './Components/CharityForm';
 import Donate from './Components/Donate';
-import MyDonations from './Components/MyDonations';
+import WeAre from './Components/WeAre';
+
+
+
+
 
 function App() {
   return (
@@ -21,7 +25,9 @@ function App() {
           <Route path='/login' component={LogIn} />
           <Route path='/home' component={Home} />
           <Route path='/Donaciones' component={FoodAvailable} />
-          <Route path='/MisDonaciones' component={MyDonations} />
+          <Route path='/WeAre' component={WeAre} />
+
+          {/* <Route path='/MisDonaciones' component={MyDonations} /> */}
           <Route path='/CharityForm' component={CharityForm} />
         </Switch>
       </Router>
