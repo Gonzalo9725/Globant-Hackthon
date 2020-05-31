@@ -82,8 +82,7 @@ const Welcome = () => {
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
                 onChangeIndex={handleStepChange}
-                enableMouseEvents
-            >
+                enableMouseEvents>
                 {tutorialSteps.map((step, index) => (
                 <div key={step.label} className="custom-carrousel">
                     {Math.abs(activeStep - index) <= 2 ? (
@@ -110,17 +109,10 @@ const Welcome = () => {
             />
         </div>
         <div className='welcome-btn'>
-        <ButtonP title='Entrar'/>
-        <ButtonP title='Registrarse' onClick={() => history.push('/login')}/>
-        {/* <p className='register-link' onClick={() => history.push('/register')}>Crea tu cuenta aquí</p> */}
+        <ButtonP title='Entrar' onClick={() => history.push('/login')} />
+        <ButtonP title='Registrarse' onClick={() => history.push('/signup')}/>
         </div>
 
-
-
-
-
-
-            
         </div>
     )
 }

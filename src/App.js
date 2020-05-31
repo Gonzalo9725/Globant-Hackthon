@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import NavBar from './Components/Widgets/NavBar'
+import NavBar from './Components/Widgets/NavBar'
 import Welcome from './Components/Welcome'
 import LogIn from './Components/LogIn';
+import Home from './Components/Home'
+import SignUp from './Components/SignUp'
 import FoodAvailable from './Components/FoodAvailable';
 import CharityForm from './Components/CharityForm';
+
 
 
 
@@ -16,9 +19,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Welcome} />
+          <Route path='/signup' component={SignUp} />
           <Route path='/login' component={LogIn} />
+          <Route path='/home' component={Home} />
           <Route path='/Donaciones' component={FoodAvailable} />
           <Route path='/ong' component={CharityForm} />
+          <Route exact path='/nav' component={NavBar} />
+
         </Switch>
       </Router>
     </>

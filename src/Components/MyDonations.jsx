@@ -1,10 +1,11 @@
 import React from 'react'
 import './MyDonations.css'
+import FoodCard from './Widgets/FoodCard'
 
 const MyDonations = () => {
     return (
         <div>
-            
+            <FoodCard/>
         </div>
     )
 }
