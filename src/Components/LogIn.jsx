@@ -8,6 +8,8 @@ import Button from "./Widgets/Button";
 import google from "../img/google.png";
 import { firebase, auth } from '../firebase-config'
 import logo from '../img/Logo-Share.png'
+import { connect } from "react-redux";
+import { setUser } from "../actions/action";
 
 // objeto de configuracion de estilos de material ui
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const LogIn = () => {
+const LogIn = ({setUser}) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -59,7 +61,9 @@ const signIn = async (e) => {
 const register = (async () => { console.log('entro click')
   try {
     const res = await auth.signInWithEmailAndPassword(email, password);
-    console.log(res.user);
+    setUser({ user: res.user });
+    localStorage.setItem("user", JSON.stringify(res.user));
+    console.log('data' + res.user);
     history.push("/home");
   } catch (error) {
     if (error.code === "auth/invalid-email") {
@@ -73,10 +77,11 @@ const register = (async () => { console.log('entro click')
 
 const signUpGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-
   auth.signInWithPopup(provider)
-  .then(() => {
-      history.push('/home')
+  .then((response) => {
+    setUser({ user: response.user });
+    localStorage.setItem("user", JSON.stringify(response.user));
+    history.push('/home')
   })
   .catch((error) => {
       console.log(error)
@@ -121,5 +126,10 @@ const signUpGoogle = () => {
   );
 };
 
-export default LogIn;
+const MapStateToProps = (state) => {
+  return { user: state.user };
+};
+const MapDispatchToProps = { setUser };
+
+export default connect(MapStateToProps, MapDispatchToProps)(LogIn);
 
