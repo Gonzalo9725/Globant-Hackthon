@@ -39,7 +39,6 @@ const CharityForm = () => {
             Representative: data.Representative,
             RepID: data.RepID,
             Address: data.Address,
-            userID: firebaseUser.uid,
             Email: data.Email,
             Tel: data.Tel
         })
@@ -53,26 +52,26 @@ const CharityForm = () => {
             });
     }
 
-    React.useEffect(() => {
-        console.log('1. Entrando al UseEffect')
-        const fetchUser = () => {  // Consigue el currentUser
-            auth.onAuthStateChanged(user => {
-                if (user) {
-                    console.log('2. Entrando al IF del UseEffect')
-                    setFirebaseUser({ // La guarda en un estado
-                        displayName: user.displayName,
-                        email: user.email,
-                        uid: user.uid,
-                        emailVerified: user.emailVerified,
-                        photoURL: user.photoURL
-                    })
-                } else {
-                    setFirebaseUser({})
-                }
-            })
-        }
-        fetchUser()
-    }, [])
+    // React.useEffect(() => {
+    //     console.log('1. Entrando al UseEffect')
+    //     const fetchUser = () => {  // Consigue el currentUser
+    //         auth.onAuthStateChanged(user => {
+    //             if (user) {
+    //                 console.log('2. Entrando al IF del UseEffect')
+    //                 setFirebaseUser({ // La guarda en un estado
+    //                     displayName: user.displayName,
+    //                     email: user.email,
+    //                     uid: user.uid,
+    //                     emailVerified: user.emailVerified,
+    //                     photoURL: user.photoURL
+    //                 })
+    //             } else {
+    //                 setFirebaseUser({})
+    //             }
+    //         })
+    //     }
+    //     fetchUser()
+    // }, [])
     return (
         <div>
             <NavBar />
