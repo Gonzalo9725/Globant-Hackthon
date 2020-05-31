@@ -1,0 +1,19 @@
+.container-logIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #E5E5E5
+}
+
+.container-logIn form {
+    display: flex;
+    flex-direction: column;
+    margin: 3em 2em 3em 2em;;
+}
+
+.logo-login{
+    width: 244.15px;
+    height: 149px;
+}
