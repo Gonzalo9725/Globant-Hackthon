@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Select, FormControl, MenuItem, Grid, InputLabel } from "@material-ui/core";
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+import { Select, FormControl, MenuItem } from "@material-ui/core";
 import TextField from '@material-ui/core/TextField';
 import Button from './Widgets/Button'
-import "date-fns";
 import "./Donate.css";
 import {db} from '../firebase-config';
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -27,7 +25,8 @@ const Donate = () => {
   const [cantidad, setCantidad] = useState("");
   const [food, setFood] = useState("");
 
-
+  const history = useHistory();
+  
   const handleRut = (event) => {
     setRut(event.target.value);
   };
@@ -36,8 +35,8 @@ const Donate = () => {
     setFoodType(event.target.value);
   };
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
   };
 
   const handleName = (event) => {
@@ -73,6 +72,8 @@ const Donate = () => {
     })
     .then((docRef) => {
       console.log(docRef);
+      alert('Hemos recibido tu donación exitosamente');
+      history.push("/home")
     })
     .catch((error) => {
       console.log('Error ', error);
@@ -108,41 +109,18 @@ const Donate = () => {
           <MenuItem value={"Otros"}>Otros</MenuItem>
         </Select>
 
-        <MuiPickersUtilsProvider utils={DateFnsUtils} >
-        <label className="form-marginTop">Fecha de Vencimiento</label>
-          <Grid container justify="space-around" className="select">
-            <KeyboardDatePicker
-              disableToolbar
-              variant="inline"
-              format="dd/MM/yyyy"
-              margin="normal"
-              id="date-picker-inline"
-              label="Date picker inline"
-              value={selectedDate}
-              onChange={handleDateChange}
-              KeyboardButtonProps={{"aria-label": "change date",}}
-            />
-          </Grid>
-        </MuiPickersUtilsProvider>
+        <label className="expired-label">Fecha de Vencimiento</label>
+        <input type="date" className="date" onChange={handleDateChange} min="2020-05-01"/>
 
-        <TextField 
-          className="select" 
-          id="name" 
-          label="Nombre"
-          onChange={handleName} />
+        <TextField className="select" id="name" label="Nombre" onChange={handleName} />
 
         <TextField onChange={handlePhone} className="select" id="phone" label="Teléfono" />
 
         <TextField onChange={handleCantidad} className="select" id="cantidad" label="¿Cuantos kg vas a donar?" />
-        <span>Kg.</span>
 
-        <TextField 
-          className="select" 
-          id="donation" 
-          label="¿Qué vas a donar?"
-          onChange={handleFood} />
+        <TextField className="select" id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
 
-        <div className="form-marginTop">
+        <div className="button-form">
             <Button disabled={false} title="Enviar" onClick={sendDonation}/>
         </div>
       </FormControl>
