@@ -52,26 +52,7 @@ const CharityForm = () => {
             });
     }
 
-    // React.useEffect(() => {
-    //     console.log('1. Entrando al UseEffect')
-    //     const fetchUser = () => {  // Consigue el currentUser
-    //         auth.onAuthStateChanged(user => {
-    //             if (user) {
-    //                 console.log('2. Entrando al IF del UseEffect')
-    //                 setFirebaseUser({ // La guarda en un estado
-    //                     displayName: user.displayName,
-    //                     email: user.email,
-    //                     uid: user.uid,
-    //                     emailVerified: user.emailVerified,
-    //                     photoURL: user.photoURL
-    //                 })
-    //             } else {
-    //                 setFirebaseUser({})
-    //             }
-    //         })
-    //     }
-    //     fetchUser()
-    // }, [])
+
     return (
         <div>
             <NavBar />
