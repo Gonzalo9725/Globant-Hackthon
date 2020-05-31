@@ -8,15 +8,7 @@ import SignUp from './Components/SignUp'
 import FoodAvailable from './Components/FoodAvailable';
 import CharityForm from './Components/CharityForm';
 import Donate from './Components/Donate';
-<<<<<<< HEAD
-import MyDonations from './Components/MyDonations'
-=======
 import MyDonations from './Components/MyDonations';
->>>>>>> 131cf1411e9aa29f66017cf8f7e730db549b8494
-
-
-
-
 
 function App() {
   return (
