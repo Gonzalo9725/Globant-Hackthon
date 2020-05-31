@@ -40,11 +40,13 @@ const FoodCard = ({title, qty, exp, name, contact, isYours, category, deleteFunc
                     <span className='subTextCard'><b>Contacto:</b> {contact}</span>
                     <span className='subTextCard'><b>Categoría:</b> {category}</span>       
                 </div>
-                {isDespensa && <img className='imgCard' src={require('../../img/canned-food.png')} alt="Categoría Despensa"/> }
-                {isVegetales && <img className='imgCard' src={require('../../img/vegetable.png')} alt=" Categoría Frutas y vegetales"/> }
-                {isFrescos && <img className='imgCard' src={require('../../img/milk.png')} alt=" Categoría Frescos y Lácteos"/> }
-                {isCarnes && <img className='imgCard' src={require('../../img/meat.png')} alt=" Categoría Carnes"/> }
-                {isOtros && <img className='imgCard' src={require('../../img/cake-pop.png')} alt=" Categoría Otros"/> }
+                < div className='divImg'> 
+                    {isDespensa && <img className='imgCard' src={require('../../img/canned-food.png')} alt="Categoría Despensa"/> }
+                    {isVegetales && <img className='imgCard' src={require('../../img/vegetable.png')} alt=" Categoría Frutas y vegetales"/> }
+                    {isFrescos && <img className='imgCard' src={require('../../img/milk.png')} alt=" Categoría Frescos y Lácteos"/> }
+                    {isCarnes && <img className='imgCard' src={require('../../img/meat.png')} alt=" Categoría Carnes"/> }
+                    {isOtros && <img className='imgCard' src={require('../../img/cake-pop.png')} alt=" Categoría Otros"/> }
+                </div>
             </div>
         </div>
     )

@@ -4,7 +4,7 @@ import { Select, FormControl, MenuItem } from "@material-ui/core";
 import TextField from '@material-ui/core/TextField';
 import Button from './Widgets/Button'
 import "./Donate.css";
-import {db} from '../firebase-config';
+import {db, auth} from '../firebase-config';
 import { useHistory } from 'react-router-dom'
 import Navbar from './Widgets/NavBar' 
 
@@ -25,6 +25,7 @@ const Donate = () => {
   const [phone, setPhone] = useState("");
   const [cantidad, setCantidad] = useState("");
   const [food, setFood] = useState("");
+  const [firebaseUser, setFirebaseUser] = useState(false)
 
   const history = useHistory();
   
@@ -70,6 +71,7 @@ const Donate = () => {
       quantity: cantidad,
       title: food,
       time: new Date(),
+      userID: firebaseUser,
     })
     .then((docRef) => {
       console.log(docRef);
@@ -80,6 +82,26 @@ const Donate = () => {
       console.log('Error ', error);
     });
   };
+
+  React.useEffect(() => {
+    console.log('1. Entrando al UseEffect')
+    const fetchUser = () => {  // Consigue el currentUser
+      auth.onAuthStateChanged(user => {
+          if(user){
+            console.log('2. Entrando al IF del UseEffect')
+              setFirebaseUser({ // La guarda en un estado
+                displayName : user.displayName, 
+                email: user.email,
+                uid: user.uid,
+                emailVerified: user.emailVerified,
+                photoURL: user.photoURL})
+          }else{
+              setFirebaseUser({})
+          }
+      })
+    }
+    fetchUser()
+  }, [])
 
   return (
     <>
@@ -92,13 +114,25 @@ const Donate = () => {
         noValidate
         autoComplete="off">
 
+        <TextField id="name" label="Nombre" onChange={handleName} />
+
         <TextField 
           className="select" 
           id="rut" 
           label="R.U.T"
           onChange={handleRut} />
-        <br/><br/>
-        <label>Categoría</label>
+
+        <TextField onChange={handlePhone} id="phone" label="Teléfono" />
+        <br/>
+
+        <TextField id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
+
+        <TextField onChange={handleCantidad} id="cantidad" label="Cantidad que vas a donar:" />
+
+        <label className="expired-label">Fecha de Vencimiento</label>
+        <input type="date" className="date" onChange={handleDateChange} min="2020-05-01"/>
+
+        <label className="expired-label">Categoría</label>
         <Select
           className="select"
           labelId="demo-simple-select-label"
@@ -112,16 +146,6 @@ const Donate = () => {
           <MenuItem value={"Otros"}>Otros</MenuItem>
         </Select>
 
-        <label className="expired-label">Fecha de Vencimiento</label>
-        <input type="date" className="date" onChange={handleDateChange} min="2020-05-01"/>
-
-        <TextField id="name" label="Nombre" onChange={handleName} />
-
-        <TextField onChange={handlePhone} id="phone" label="Teléfono" />
-
-        <TextField onChange={handleCantidad} id="cantidad" label="¿Cuantos kg vas a donar?" />
-
-        <TextField id="donation" label="¿Qué vas a donar?"onChange={handleFood} />
 
         <div className="button-form">
             <Button disabled={false} title="Enviar" onClick={sendDonation} color="#469D8B"/>

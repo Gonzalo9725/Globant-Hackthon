@@ -3,7 +3,7 @@ import './NavBar.css'
 import logo from '../../img/Logo-Share.png'
 import perfil from '../../img/default_profile.jpg'
 import { auth } from '../../firebase-config'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 const NavBar = ({user}) => {
@@ -26,7 +26,9 @@ const NavBar = ({user}) => {
   };
     return (
         <div className='container-navbar'>
+          <Link to='/Home' style={{textDecoration: 'none'}}>
             <img className='navbar-logo' src={logo} alt="logoNavbar"/>
+          </Link>
 
             <div className='dropdown'> 
             {user.photoURL != null ? (
@@ -40,7 +42,7 @@ const NavBar = ({user}) => {
             )}     
             
             <div className='dropdown-content'>
-                 <a href="https://www.w3schools.com/tags/att_a_href.asp">Ver mi perfil</a>
+                 <a href="/CharityForm">Ser Insitución Benéfica</a>
                 <a onClick={() => closeSession()}>Cerrar Sesión</a> 
             </div>
             </div>

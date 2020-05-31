@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #686868;
 }
 .CharityForm-form{
     display: flex;
@@ -12,17 +13,12 @@
     flex-wrap: nowrap;
 }
 .CharityForm-button{
-    width: 80%;
     align-self: center;
+    width: 100%;
 }
-.CharityForm-FileInputP{
-    font-size: small;
-    color: grey;
-}
-.CharityForm-InputFile{
-    margin-top: 15%;
-}
-.CharityForm-FileInputP{
-    margin-bottom: 15%;
+.CharityForm-buttonDiv{
+    padding: 15%;
+    display: flex;
+    align-items: center;
 }
     

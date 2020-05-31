@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './CharityForm.css'
-import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
 // import firebase from "firebase/app";
 // import "firebase/firestore";
-import { db } from '../firebase-config';
+import { db, auth } from '../firebase-config';
+import Button from './Widgets/Button'
 
 
 
@@ -17,20 +17,18 @@ const CharityForm = () => {
         Representative: '',
         RepID: '',
         Address: '',
-        File: ''
+        File: '',
+        Email: '',
+        Tel: ''
     });
+    const [firebaseUser, setFirebaseUser] = useState(false)
     const handleInputChange = event => {
         setData({
             ...data,
             [event.target.name]: event.target.value
         })
     }
-    const handleFileChange = event => {
-        setData({
-            ...data,
-            [event.target.name]: event.target.files[0]
-        })
-    }
+
     const sendData = (event) => {
         event.preventDefault();
         console.log(data)
@@ -42,9 +40,31 @@ const CharityForm = () => {
             Representative: data.Representative,
             RepID: data.RepID,
             Address: data.Address,
-
+            userID: firebaseUser.uid,
+            Email: data.Email,
+            Tel: data.Tel
         })
     }
+
+    React.useEffect(() => {
+        console.log('1. Entrando al UseEffect')
+        const fetchUser = () => {  // Consigue el currentUser
+          auth.onAuthStateChanged(user => {
+              if(user){
+                console.log('2. Entrando al IF del UseEffect')
+                  setFirebaseUser({ // La guarda en un estado
+                    displayName : user.displayName, 
+                    email: user.email,
+                    uid: user.uid,
+                    emailVerified: user.emailVerified,
+                    photoURL: user.photoURL})
+              }else{
+                  setFirebaseUser({})
+              }
+          })
+        }
+        fetchUser()
+      }, [])
     return (
         <div>
             <NavBar />
@@ -66,7 +86,7 @@ const CharityForm = () => {
                         required id="standard-required"
                     />
                     <TextField className="CharityForm-text"
-                        label="Nombre de representante de institución"
+                        label="Representante de institución"
                         name="Representative"
                         value={data.Representative}
                         onChange={handleInputChange}
@@ -86,11 +106,25 @@ const CharityForm = () => {
                         onChange={handleInputChange}
                         required id="standard-required"
                     />
-                    <input className="CharityForm-InputFile" type="file" onChange={handleFileChange}></input>
-                    <p className="CharityForm-FileInputP">Adjuntar documentación que valide la institución que desea ser beneficiada</p>
-                    <Button variant="contained" color="primary" disableElevation className="CharityForm-button" type="submit">
-                        Enviar
-                </Button>
+                    <TextField className="CharityForm-text"
+                        label="Email"
+                        name="Email"
+                        value={data.Email}
+                        onChange={handleInputChange}
+                        required id="standard-required"
+                    />
+                    <TextField className="CharityForm-text"
+                        label="Teléfono"
+                        name="Tel"
+                        value={data.Tel}
+                        onChange={handleInputChange}
+                        required id="standard-required"
+                    />
+                    <div className="CharityForm-buttonDiv">
+
+                        <Button disabled={false} title="Enviar" type="submit" color="#469D8B" />
+
+                    </div>
                 </form>
             </div>
         </div>
