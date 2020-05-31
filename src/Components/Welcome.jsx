@@ -32,8 +32,7 @@ const tutorialSteps = [
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
-    
-    
+    backgroundColor: '#469D8B',
   },
   header: {
     display: 'flex',
