@@ -68,7 +68,7 @@ border:none;
     max-width: 200px;
 
 }
-@media all and (max-width: 400px){
+@media all and (max-width: 415px){
     .divUs, .give, .receive{
         padding: 2%;
         width: 70%;
