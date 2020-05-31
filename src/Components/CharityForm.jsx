@@ -3,6 +3,8 @@ import './CharityForm.css'
 import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 
 
@@ -30,29 +32,16 @@ const CharityForm = () => {
     const sendData = (event) => {
         event.preventDefault();
         console.log(data)
-        //----------------------- FIREBASE---------------------------
-        // // Saving files in firebase storage
-        // const storageRef = firebase.storage().ref();
-        // const uploadTask = storageRef.child(`Files/${data.RepID.name}`).put(data.RepID);
-        // uploadTask.on('state_changed',
-        //     () => {
-        //     }, (error) => {
-        //         console.log('error')
-        //     }, () => {
-        //         uploadTask.snapshot.ref.getDownloadURL()
-        //             .then((downloadURL) => {
-        // // Adding collection in firebase                 
-        // firebase.firestore().collection("ONG").add({
-        //     name: data.Name,
-        //     RUT: data.RUT,
-        //     Representative: data.Representative,
-        //     RepID: downloadURL,
-        //     Constitution: data.Constitution
-        // }).catch(() => {
-        //     console.error('Error adding document: ', error);
-        // });
-        //-------------------------------------------------------
 
+        // Adding collection in firebase                 
+        firebase.firestore().collection("ONG").add({
+            name: data.Name,
+            RUT: data.RUT,
+            Representative: data.Representative,
+            RepID: data.RepID,
+            Address: data.Address,
+
+        })
     }
     return (
         <div>
