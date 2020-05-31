@@ -2,11 +2,9 @@ import React, { useState } from 'react'
 import './CharityForm.css'
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
-// import firebase from "firebase/app";
-// import "firebase/firestore";
 import { db, auth } from '../firebase-config';
 import Button from './Widgets/Button'
-
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -21,6 +19,7 @@ const CharityForm = () => {
         Email: '',
         Tel: ''
     });
+    const history = useHistory();
     const [firebaseUser, setFirebaseUser] = useState(false)
     const handleInputChange = event => {
         setData({
@@ -44,27 +43,36 @@ const CharityForm = () => {
             Email: data.Email,
             Tel: data.Tel
         })
+            .then((docRef) => {
+                console.log(docRef);
+                alert('Enviado. Nos contactaremos con ustedes para completar el proceso');
+                history.push("/home")
+            })
+            .catch((error) => {
+                console.log('Error ', error);
+            });
     }
 
     React.useEffect(() => {
         console.log('1. Entrando al UseEffect')
         const fetchUser = () => {  // Consigue el currentUser
-          auth.onAuthStateChanged(user => {
-              if(user){
-                console.log('2. Entrando al IF del UseEffect')
-                  setFirebaseUser({ // La guarda en un estado
-                    displayName : user.displayName, 
-                    email: user.email,
-                    uid: user.uid,
-                    emailVerified: user.emailVerified,
-                    photoURL: user.photoURL})
-              }else{
-                  setFirebaseUser({})
-              }
-          })
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    console.log('2. Entrando al IF del UseEffect')
+                    setFirebaseUser({ // La guarda en un estado
+                        displayName: user.displayName,
+                        email: user.email,
+                        uid: user.uid,
+                        emailVerified: user.emailVerified,
+                        photoURL: user.photoURL
+                    })
+                } else {
+                    setFirebaseUser({})
+                }
+            })
         }
         fetchUser()
-      }, [])
+    }, [])
     return (
         <div>
             <NavBar />
