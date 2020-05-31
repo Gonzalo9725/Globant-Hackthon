@@ -3,10 +3,11 @@ import './Button.css'
 import PropTypes from 'prop-types'
 
 
-const Button = ({title, onClick}) => {
+const Button = ({title, onClick, disabled}) => {
     return (
         <button 
-            className = 'button'
+            disabled={disabled}
+            className = 'buttonC'
             onClick = {onClick}>
             {title}
         </button>
