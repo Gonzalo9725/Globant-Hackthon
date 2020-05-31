@@ -4,11 +4,10 @@ import "./LogIn.css";
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import logo from "../img/logo-white.png";
 import Button from "./Widgets/Button";
 import google from "../img/google.png";
-import Switch from "@material-ui/core/Switch";
 import { firebase, auth } from '../firebase-config'
+import logo from '../img/Logo-Share.png'
 
 // objeto de configuracion de estilos de material ui
 const useStyles = makeStyles((theme) => ({
@@ -31,17 +30,6 @@ const useStyles = makeStyles((theme) => ({
 const LogIn = () => {
   const classes = useStyles();
   const history = useHistory();
-
-  // función del aceptar terminos y condiciones
-const [state, setState] = React.useState({
-  checkedA: false,
-  checkedB: true,
-});
-
-const handleChangeSwitch = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-};
-
 
 // Manejan el estado de las funciones para crear una cuenta nueva
 const [email, setEmail] = useState("");
@@ -97,15 +85,10 @@ const signUpGoogle = () => {
 
   return (
     <>
-      <div className="navbar-logo">
-        <img src={logo} alt="logo" />
-      </div>
-      <div className="container-login">
-        <h1>Iniciar Sesión</h1>
-        <p className='text-login'>
-          Ingresa la Informacón requerida a continuación para completar tu
-          registro
-        </p>
+      
+      <div className="container-logIn">
+      <img className='logo-login' src={logo} alt="logo"/>
+        
         <form onSubmit={signIn} className={classes.root} noValidate autoComplete="off">
           {error && <div style={{ color: "darkred" }}>{error}</div>}
           <TextField 

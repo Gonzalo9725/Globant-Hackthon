@@ -8,6 +8,7 @@ import Home from './Components/Home'
 import SignUp from './Components/SignUp'
 import FoodAvailable from './Components/FoodAvailable';
 import CharityForm from './Components/CharityForm';
+import Donate from './Components/Donate';
 
 
 
