@@ -20,8 +20,8 @@ const NavBar = () => {
             <img className="navbar-profile" alt="fotoperfil" src={perfil} />
             
             <div className='dropdown-content'>
-                <a>Ver mi perfil</a>
-                <a>Cerrar Sesión</a>
+                 <a href="https://www.w3schools.com/tags/att_a_href.asp">Ver mi perfil</a>
+                <a href="https://www.w3schools.com/tags/att_a_href.asp">Cerrar Sesión</a> 
             </div>
             </div>
                 {/* <img src={perfil} alt="defaultProfile"/>    */}

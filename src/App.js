@@ -7,6 +7,7 @@ import LogIn from './Components/LogIn';
 import Home from './Components/Home'
 import SignUp from './Components/SignUp'
 import FoodAvailable from './Components/FoodAvailable';
+import Donate from './Components/Donate';
 
 
 
