@@ -102,7 +102,7 @@ const signUpGoogle = () => {
       </div>
       <div className="container-login">
         <h1>Iniciar Sesión</h1>
-        <p>
+        <p className='text-login'>
           Ingresa la Informacón requerida a continuación para completar tu
           registro
         </p>
@@ -131,7 +131,7 @@ const signUpGoogle = () => {
               name="checkedA"
               inputProps={{ "aria-label": "default checkbox" }}
             />
-            <p>
+            <p className='condiciones'>
               Al ingresar o registrarte, estás aceptando los Términos y
               Condiciones de ShareFoord
             </p>

@@ -104,9 +104,9 @@ const signUpGoogle = () => {
       </div>
       <div className="container-login">
         <h1>Registrarse</h1>
-        <p>
-          Ingresa la Informacón requerida a continuación para completar tu
-          registro
+        <p className='text-login'>
+          Ingresa la Informacón requerida a continuación para
+          completar tu registro
         </p>
         <form onSubmit={signIn} className={classes.root} noValidate autoComplete="off">
           {error && <div style={{ color: "darkred" }}>{error}</div>}
@@ -142,7 +142,7 @@ const signUpGoogle = () => {
               name="checkedA"
               inputProps={{ "aria-label": "default checkbox" }}
             />
-            <p>
+            <p className='condiciones'>
               Al ingresar o registrarte, estás aceptando los Términos y
               Condiciones de ShareFoord
             </p>
