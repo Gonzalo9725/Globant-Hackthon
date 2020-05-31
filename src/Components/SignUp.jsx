@@ -85,21 +85,11 @@ const register = (async () => { console.log('entro click')
   }
 });
 
-const signUpGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
 
-  auth.signInWithPopup(provider)
-  .then(() => {
-      history.push('/home')
-  })
-  .catch((error) => {
-      console.log(error)
-  })
-}
 
   return (
     <>
-      <div className="navbar-logo">
+      <div className='navbar-logoC'>
         <img src={logo} alt="logo" />
       </div>
       <div className="container-signUp">
@@ -152,12 +142,6 @@ const signUpGoogle = () => {
             <Button type='submit'  disabled={true} title="Ingresar" />
           )}
 
-          <div className="container-btn-google">
-            <button className="btn-google" onClick={signUpGoogle}>
-              <img className="google" src={google} alt="google"/>
-              Ingresa con Google
-            </button>
-          </div>
         </div>
       </div>
     </>
