@@ -4,8 +4,27 @@
     align-items:center;
     
 }
+.girl-img{
+    width: 123px;
+    height: 125px;
+}
+.frutas-img{
+    width: 105px;
+    height: 100px;
+    margin-left: 10px;
+
+}
+.gente-img{
+    width: 100px;
+    height: 100px;
+    width: 135px;
+    height: 105px;
+
+}
 .divUs, .give, .receive {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 450px;
     height: auto;
     margin-top:1%;
@@ -13,6 +32,7 @@
     padding: 2%;
     border-radius: 5px;
     color: white;
+    margin-bottom: 1.5em;
 }
 .divUs {
     background: #469D8B;
@@ -55,11 +75,9 @@ border:none;
         height: 160px;
         font-size: x-small;
     }
-    .img{
-        max-width: 120px;
-    }
+    
     .divHome{
-        margin-top: 5%;
+        margin-top: 1em;
     }
     .btnUs, .btnGive, .btnReceive{
         width: 100px;
