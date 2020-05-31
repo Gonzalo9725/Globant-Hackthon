@@ -1,24 +1,10 @@
 import React, { useState } from 'react'
 import './CharityForm.css'
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import TextField from "@material-ui/core/TextField"
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
-    input: {
-        display: 'none',
-    },
-}));
 
 const CharityForm = () => {
-    const classes = useStyles();
     const [data, setData] = useState({
         Name: '',
         RUT: '',
@@ -68,7 +54,7 @@ const CharityForm = () => {
     }
     return (
         <div className="CharityForm-Container">
-            <h1>FORMULARIO DE POSTULACIÓN</h1>
+            <h3>FORMULARIO DE POSTULACIÓN</h3>
             <form className="CharityForm-form" onSubmit={sendData}>
                 <TextField className="CharityForm-text"
                     label="Institución"
@@ -105,24 +91,8 @@ const CharityForm = () => {
                     onChange={handleInputChange}
                     required id="standard-required"
                 />
-                <div className={classes.root}>
-                    <input
-                        accept="image/*"
-                        className={classes.input}
-                        id="contained-button-file"
-                        multiple
-                        type="file"
-                    />
-                    <label htmlFor="contained-button-file">
-                        Imagen
-                    </label>
-                    <input required id="standard-required" accept="image/*" className={classes.input} id="icon-button-file" type="file" onChange={handleFileChange} name="File" />
-                    <label htmlFor="icon-button-file">
-                        <IconButton color="primary" aria-label="upload picture" component="span">
-                            <PhotoCamera />
-                        </IconButton>
-                    </label>
-                </div>
+                <input className="CharityForm-InputFile" type="file" onChange={handleFileChange}></input>
+                <p className="CharityForm-FileInputP">Adjuntar documentación que valide la institución que desea ser beneficiada</p>
                 <Button variant="contained" color="primary" disableElevation className="CharityForm-button" type="submit">
                     Enviar
                 </Button>
