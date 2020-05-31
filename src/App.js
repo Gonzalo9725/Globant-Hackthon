@@ -27,6 +27,8 @@ function App() {
           <Route path='/Donaciones' component={FoodAvailable} />
           <Route path='/WeAre' component={WeAre} />
 
+          <Route path='/MisDonaciones' component={MyDonations} />
+          <Route path='/CharityForm' component={CharityForm} />
         </Switch>
       </Router>
     </>
