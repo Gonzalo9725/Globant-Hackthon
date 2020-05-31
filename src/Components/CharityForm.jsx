@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import './CharityForm.css'
-import Button from '@material-ui/core/Button';
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
-// import firebase from "firebase/app";
-// import "firebase/firestore";
 import { db } from '../firebase-config';
+import Button from './Widgets/Button'
 
 
 
@@ -17,7 +15,9 @@ const CharityForm = () => {
         Representative: '',
         RepID: '',
         Address: '',
-        File: ''
+        File: '',
+        Email: '',
+        Tel: ''
     });
     const handleInputChange = event => {
         setData({
@@ -25,12 +25,7 @@ const CharityForm = () => {
             [event.target.name]: event.target.value
         })
     }
-    const handleFileChange = event => {
-        setData({
-            ...data,
-            [event.target.name]: event.target.files[0]
-        })
-    }
+
     const sendData = (event) => {
         event.preventDefault();
         console.log(data)
@@ -42,7 +37,8 @@ const CharityForm = () => {
             Representative: data.Representative,
             RepID: data.RepID,
             Address: data.Address,
-
+            Email: data.Email,
+            Tel: data.Tel
         })
     }
     return (
@@ -66,7 +62,7 @@ const CharityForm = () => {
                         required id="standard-required"
                     />
                     <TextField className="CharityForm-text"
-                        label="Nombre de representante de institución"
+                        label="Representante de institución"
                         name="Representative"
                         value={data.Representative}
                         onChange={handleInputChange}
@@ -86,11 +82,25 @@ const CharityForm = () => {
                         onChange={handleInputChange}
                         required id="standard-required"
                     />
-                    <input className="CharityForm-InputFile" type="file" onChange={handleFileChange}></input>
-                    <p className="CharityForm-FileInputP">Adjuntar documentación que valide la institución que desea ser beneficiada</p>
-                    <Button variant="contained" color="primary" disableElevation className="CharityForm-button" type="submit">
-                        Enviar
-                </Button>
+                    <TextField className="CharityForm-text"
+                        label="Email"
+                        name="Email"
+                        value={data.Email}
+                        onChange={handleInputChange}
+                        required id="standard-required"
+                    />
+                    <TextField className="CharityForm-text"
+                        label="Teléfono"
+                        name="Tel"
+                        value={data.Tel}
+                        onChange={handleInputChange}
+                        required id="standard-required"
+                    />
+                    <div className="CharityForm-buttonDiv">
+
+                        <Button disabled={false} title="Enviar" type="submit" color="#469D8B" />
+
+                    </div>
                 </form>
             </div>
         </div>
