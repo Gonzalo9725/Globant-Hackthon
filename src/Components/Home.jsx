@@ -1,6 +1,5 @@
 import React, { Fragment,useEffect } from "react";
 import "./Home.css";
-import NavBar from "./Widgets/NavBar";
 import girl from "../img/girl.png";
 import frutas from "../img/frutas.png";
 import gente from "../img/gente.png";
@@ -17,11 +16,10 @@ const Home = ({ setUser }) => {
       let currentUser = localStorage.getItem("user");
       setUser({ user: JSON.parse(currentUser) });
     }
-  }, []);
+  }, [setUser]);
 
   return (
     <Fragment>
-      <NavBar />
       <div className="divHome">
         <div className="divUs">
           <div className="text">

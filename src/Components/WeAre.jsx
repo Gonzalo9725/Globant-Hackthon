@@ -1,15 +1,12 @@
-import React, { Fragment,useEffect } from "react";
+import React, { Fragment } from "react";
 import "./WeAre.css";
-import NavBar from "./Widgets/NavBar";
 import we_are from "../img/we_are.png";
-import { setUser } from "../actions/action";
-import { connect } from "react-redux";
+
 
 
 const Home = () => {
   return (
     <Fragment>
-      <NavBar />
       <div className="divWe">
       <div className='divWeAre'>
         <div>

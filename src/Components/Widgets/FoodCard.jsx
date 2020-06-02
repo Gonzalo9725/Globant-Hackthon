@@ -26,7 +26,7 @@ const FoodCard = ({title, qty, exp, name, contact, isYours, category, deleteFunc
             }
         }
         catergoryImg()
-        }, [])
+        }, [category])
 
     return (
         <div className='foodCard'>

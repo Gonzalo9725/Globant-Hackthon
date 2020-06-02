@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './CharityForm.css'
 import TextField from "@material-ui/core/TextField"
 import NavBar from './Widgets/NavBar'
-import { db, auth } from '../firebase-config';
+import { db } from '../firebase-config';
 import Button from './Widgets/Button'
 import { useHistory } from 'react-router-dom'
 
@@ -20,7 +20,7 @@ const CharityForm = () => {
         Tel: ''
     });
     const history = useHistory();
-    const [firebaseUser, setFirebaseUser] = useState(false)
+    // const [firebaseUser, setFirebaseUser] = useState(false)
     const handleInputChange = event => {
         setData({
             ...data,
