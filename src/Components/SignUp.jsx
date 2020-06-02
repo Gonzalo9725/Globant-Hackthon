@@ -69,7 +69,7 @@ const signIn = async (e) => {
   register();
 };
 
-const register = (async () => { console.log('entro click')
+const register = (async () => { 
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     console.log(res.user);
