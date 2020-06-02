@@ -43,7 +43,7 @@ const NavBar = ({user}) => {
             
             <div className='dropdown-content'>
                  <a href="/CharityForm">Ser Insitución Benéfica</a>
-                <a onClick={() => closeSession()}>Cerrar Sesión</a> 
+                <a href='/welcome' onClick={() => closeSession()}>Cerrar Sesión</a> 
             </div>
             </div>
         </div>

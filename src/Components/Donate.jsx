@@ -5,8 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from './Widgets/Button'
 import "./Donate.css";
 import {db, auth} from '../firebase-config';
-import { useHistory } from 'react-router-dom'
-import Navbar from './Widgets/NavBar' 
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -105,7 +104,6 @@ const Donate = () => {
 
   return (
     <>
-    <Navbar/>
     <div className="donate-container">
       <h1>¿Qué deseas donar?</h1>
 

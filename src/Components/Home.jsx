@@ -1,6 +1,5 @@
 import React, { Fragment,useEffect } from "react";
 import "./Home.css";
-import NavBar from "./Widgets/NavBar";
 import girl from "../img/girl.png";
 import frutas from "../img/frutas.png";
 import gente from "../img/gente.png";
@@ -17,11 +16,10 @@ const Home = ({ setUser }) => {
       let currentUser = localStorage.getItem("user");
       setUser({ user: JSON.parse(currentUser) });
     }
-  }, []);
+  }, [setUser]);
 
   return (
     <Fragment>
-      <NavBar />
       <div className="divHome">
         <div className="divUs">
           <div className="text">
@@ -46,7 +44,7 @@ const Home = ({ setUser }) => {
               vayas a consumir los puedes Donar para que otra persona que los
               necesite los pueda adquirir
             </p>
-            <Link to='/Donar' style={{textDecoration: 'none'}}>
+            <Link to='/donar' style={{textDecoration: 'none'}}>
               <button className="btnGive">
                 <strong>Donar</strong>
               </button>
@@ -61,7 +59,7 @@ const Home = ({ setUser }) => {
               Si deseas recibir alimentos ya sea para tu consumo personal o para
               llevarlos a alguna persona necesitada, ingresa aquí
             </p>
-            <Link to='/Donaciones' style={{textDecoration: 'none'}}>
+            <Link to='/donaciones' style={{textDecoration: 'none'}}>
               <button className="btnReceive">
                 <strong>Recibir</strong>
               </button>

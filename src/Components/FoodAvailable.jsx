@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './FoodAvailable.css'
 import FoodCard from './Widgets/FoodCard'
-import NavBar from './Widgets/NavBar'
 import { db } from '../firebase-config'
 
 const FoodAvailable = () => {
@@ -32,7 +31,6 @@ const FoodAvailable = () => {
 
     return (
         <div className='foodAvailable'>
-            <NavBar />
             <h1 className='titleFoodSection'>Comida para ser donada:</h1>
             <div className='foodAvailableDiv'>
             { foodAvailable &&

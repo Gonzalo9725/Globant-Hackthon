@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './SignUp.css'
-import "./LogIn.css";
+import './LogIn.css';
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
