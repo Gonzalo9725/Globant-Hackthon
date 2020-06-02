@@ -13,10 +13,12 @@ Share Food tiene 2 tipos de usuario:
 
 # Tecnologías Utilizadas
 
-- React Js
-- React Hooks
-- React Redux
-- Material Ui
+- React.js
+- React router dom
+- Hooks
+- Redux
+- Material UI
+- Firebase/Auth
 - Firebase/Firestore
 
 
