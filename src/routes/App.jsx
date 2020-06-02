@@ -9,6 +9,7 @@ import WeAre from '../Components/WeAre';
 import Donate from '../Components/Donate';
 import FoodAvailable from '../Components/FoodAvailable';
 import CharityForm from '../Components/CharityForm';
+import NotFound from '../Components/NotFound';
 
 const App = () => (
     <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
         <Route path='/donar' component={Donate} />
         <Route path='/donaciones' component={FoodAvailable} />
         <Route path='/charityForm' component={CharityForm} />
+        <Route component={NotFound} />
     </BrowserRouter>
 )
   
