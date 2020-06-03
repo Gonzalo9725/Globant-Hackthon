@@ -69,14 +69,13 @@ const Welcome = () => {
 
     return (
         <div className='container-welcome'>
-            <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo"/>
             
         <div className={classes.root}>
             <Paper square elevation={0} className={classes.header}>
                 <Typography>{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <AutoPlaySwipeableViews
-             
                 className="custom-carrousel"
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}

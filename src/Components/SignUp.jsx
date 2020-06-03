@@ -5,9 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import logo from "../img/logo-white.png";
 import Button from "./Widgets/Button";
-import google from "../img/google.png";
 import Switch from "@material-ui/core/Switch";
-import { firebase, auth } from '../firebase-config'
+import { auth } from '../firebase-config'
 
 // objeto de configuracion de estilos de material ui
 const useStyles = makeStyles((theme) => ({
@@ -69,7 +68,7 @@ const signIn = async (e) => {
   register();
 };
 
-const register = (async () => { console.log('entro click')
+const register = (async () => { 
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     console.log(res.user);

@@ -1,5 +1,5 @@
-# Hack the Planet Team! 
-![logo](./src/img/Logo-Share.png)
+# [Hack the Planet Team!](https://globant-hackathon.web.app/) 
+## ![logo](./src/img/Logo-Share.png)
 
 Share Food es una aplicación en la cual podrás donar los alimentos que tengas en casa y que no vas a consumir, para que así las personas que más los necesitan pueda tener acceso a ellos y así aportar un granito de arena en tan dificil situación que atraviesa el mundo entero y que para algunas familias de pocos recursos ha sido un golpe muy duro en su economía.
 
@@ -13,10 +13,12 @@ Share Food tiene 2 tipos de usuario:
 
 ## Tecnologías Utilizadas
 
-- React Js
-- React Hooks
-- React Redux
-- Material Ui
+- React.js
+- React router dom
+- Hooks
+- Redux
+- Material UI
+- Firebase/Auth
 - Firebase/Firestore
 
 ## Deploy 
